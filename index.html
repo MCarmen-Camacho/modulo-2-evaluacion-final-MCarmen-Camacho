@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Mini Online Store</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Mini Online Store</h1>
+    </header>
+    <main class="main">
+      <section class="search">
+        <input
+          type="text"
+          class="search__input js-search-input"
+          placeholder="Buscar producto..."
+        />
+        <button class="search__button js-search-btn">Buscar</button>
+      </section>
+      <section class="products js-products"></section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">Mini Store © 2025</p>
+    </footer>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
