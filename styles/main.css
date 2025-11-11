@@ -6,4 +6,121 @@
 
 :root {
   font-size: 62.5%;
+  --color-bg: #fff8f9;
+  --color-main: #e88cae;
+  --color-text: #3c3c3c;
+  --color-light: #ffffff;
+  --color-border: #e5c1cf;
+  --font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header__title {
+  font-size: 2.4rem;
+  color: var(--color-main);
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search__input {
+  width: 60%;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-light);
+  font-size: 1.6rem;
+}
+
+.search__button {
+  background-color: var(--color-main);
+  color: var(--color-light);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: opacity 0.3s;
+}
+
+.search__button:hover {
+  opacity: 0.8;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.product {
+  background-color: var(--color-light);
+  border: 1px solid var(--color-border);
+  border-radius: 0.8rem;
+  width: 200px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product__img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.product__title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.product__price {
+  color: var(--color-main);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.product__btn {
+  background-color: var(--color-main);
+  color: var(--color-light);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.product__btn:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  text-align: center;
+  margin-top: auto;
+  color: #777;
+  font-size: 1.4rem;
+  padding-top: 2rem;
 }
