@@ -152,6 +152,12 @@ body {
   font-style: italic;
 }
 
+.product__btn.in-cart {
+  background-color: var(--color-light);
+  color: var(--color-main);
+  border: 1px solid var(--color-main);
+}
+
 .footer {
   text-align: center;
   margin-top: auto;
