@@ -8,7 +8,7 @@ const cartList = document.querySelector(".js-cart-list");
 
 // VARIABLES GLOBALES
 let products = [];
-let cart = []; //Productos añadidos al carrito
+let cart = [];
 
 // FUNCIONES
 
@@ -34,7 +34,7 @@ function renderProducts(productList) {
       image = "https://placehold.co/200x150";
     }
 
-    //Comprobar si el producto ya está en el carrito
+    // Comprobar si el producto ya está en el carrito
     const isInCart = cart.some((item) => item.id === product.id);
 
     html += `
@@ -77,7 +77,7 @@ function renderCart() {
   cartList.innerHTML = html;
 }
 
-// Añadir o eliminar producto del carrito
+// Añadir o eliminar producto del carrito (solo desde botón)
 function handleToggleCart(event) {
   const productId = parseInt(event.currentTarget.dataset.id);
   const selectedProduct = products.find((product) => product.id === productId);
@@ -91,7 +91,7 @@ function handleToggleCart(event) {
     cart.splice(indexInCart, 1);
   }
 
-  // Volvemos a renderizar productos y carrito
+  // Actualizamos vista
   renderProducts(products);
   renderCart();
 }
