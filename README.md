@@ -1,7 +1,7 @@
 # Mini Online Store  
 **Evaluación Final — Módulo 2**
 
-Este proyecto forma parte de la evaluación final del Módulo 2 del curso de Desarrollo Front-End.  
+Este proyecto forma parte de la evaluación final del Módulo 2 del curso de Desarrollo Front-End de Adalab.  
 Se trata de una aplicación web que simula una tienda online, desarrollada en **HTML**, **CSS** y **JavaScript**, con conexión a una **API pública** (FakeStore API) y persistencia del carrito mediante **LocalStorage**.
 
 ---
