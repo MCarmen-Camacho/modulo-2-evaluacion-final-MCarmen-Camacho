@@ -20,23 +20,23 @@ function getProductsFromAPI() {
     });
 }
 
-function renderProducts(productsList) {
-  const defaultImage = "https://via.placeholder.com/150?text=No+image";
+function renderProducts(productList) {
   let html = "";
-  for (const product of productsList) {
+
+  for (const product of productList) {
     let image;
     if (product.image) {
       image = product.image;
     } else {
-      image = defaultImage;
+      image = "https://placehold.co/200x150";
     }
 
     html += `
       <article class="product">
-        <img src="${image}" alt="${product.title}" class="product__img" />
+        <img class="product__img" src="${image}" alt="${product.title}">
         <h3 class="product__title">${product.title}</h3>
-        <p class="product__price">${product.price.toFixed(2)} €</p> 
-        <button class="product__btn js-add-btn">Añadir</button>
+        <p class="product__price">${product.price.toFixed(2)} €</p>
+        <button class="product__btn">Comprar</button>
       </article>
     `;
   }
