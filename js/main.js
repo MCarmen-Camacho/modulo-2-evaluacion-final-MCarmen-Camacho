@@ -8,11 +8,9 @@ const cartList = document.querySelector(".js-cart-list");
 
 // VARIABLES GLOBALES
 let products = [];
-let cart = []; // Productos añadidos al carrito
+let cart = [];
 
 // FUNCIONES
-
-// Obtener productos desde la API
 function getProductsFromAPI() {
   fetch("https://fakestoreapi.com/products")
     .then((response) => response.json())
@@ -22,7 +20,6 @@ function getProductsFromAPI() {
     });
 }
 
-// Renderizar los productos en pantalla
 function renderProducts(productList) {
   let html = "";
 
@@ -34,7 +31,6 @@ function renderProducts(productList) {
       image = "https://placehold.co/200x150";
     }
 
-    // Comprobar si el producto ya está en el carrito
     const isInCart = cart.some((item) => item.id === product.id);
 
     html += `
@@ -53,14 +49,12 @@ function renderProducts(productList) {
 
   productsSection.innerHTML = html;
 
-  // Añadir eventos a cada botón
   const addButtons = document.querySelectorAll(".js-add-btn");
   for (const button of addButtons) {
     button.addEventListener("click", handleToggleCart);
   }
 }
 
-// Renderizar el carrito
 function renderCart() {
   let html = "";
 
@@ -77,12 +71,10 @@ function renderCart() {
   cartList.innerHTML = html;
 }
 
-// Guardar carrito en localStorage
 function saveCartToLocalStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Recuperar carrito del localStorage al cargar
 function loadCartFromLocalStorage() {
   const storedCart = localStorage.getItem("cart");
   if (storedCart) {
@@ -90,29 +82,23 @@ function loadCartFromLocalStorage() {
   }
 }
 
-// Añadir o eliminar producto del carrito (solo desde botón)
 function handleToggleCart(event) {
   const productId = parseInt(event.currentTarget.dataset.id);
   const selectedProduct = products.find((product) => product.id === productId);
   const indexInCart = cart.findIndex((item) => item.id === productId);
 
   if (indexInCart === -1) {
-    // No está en el carrito → lo añadimos
     cart.push(selectedProduct);
   } else {
-    // Ya está en el carrito → lo eliminamos
     cart.splice(indexInCart, 1);
   }
 
-  // Guardar cambios en localStorage
   saveCartToLocalStorage();
 
-  // Actualizamos vista
   renderProducts(products);
   renderCart();
 }
 
-// Buscar producto por texto
 function handleSearch() {
   const searchText = searchInput.value.toLowerCase();
   const filteredProducts = products.filter((product) =>
@@ -126,6 +112,6 @@ function handleSearch() {
 searchBtn.addEventListener("click", handleSearch);
 
 // CÓDIGO AL CARGAR LA PÁGINA
-loadCartFromLocalStorage(); // Recuperar carrito antes de pintar
+loadCartFromLocalStorage();
 getProductsFromAPI();
 renderCart();
