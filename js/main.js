@@ -8,7 +8,7 @@ const cartList = document.querySelector(".js-cart-list");
 
 // VARIABLES GLOBALES
 let products = [];
-let cart = [];
+let cart = []; // Productos añadidos al carrito
 
 // FUNCIONES
 
@@ -77,6 +77,19 @@ function renderCart() {
   cartList.innerHTML = html;
 }
 
+// Guardar carrito en localStorage
+function saveCartToLocalStorage() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Recuperar carrito del localStorage al cargar
+function loadCartFromLocalStorage() {
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    cart = JSON.parse(storedCart);
+  }
+}
+
 // Añadir o eliminar producto del carrito (solo desde botón)
 function handleToggleCart(event) {
   const productId = parseInt(event.currentTarget.dataset.id);
@@ -90,6 +103,9 @@ function handleToggleCart(event) {
     // Ya está en el carrito → lo eliminamos
     cart.splice(indexInCart, 1);
   }
+
+  // Guardar cambios en localStorage
+  saveCartToLocalStorage();
 
   // Actualizamos vista
   renderProducts(products);
@@ -110,5 +126,6 @@ function handleSearch() {
 searchBtn.addEventListener("click", handleSearch);
 
 // CÓDIGO AL CARGAR LA PÁGINA
+loadCartFromLocalStorage(); // Recuperar carrito antes de pintar
 getProductsFromAPI();
 renderCart();
